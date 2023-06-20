@@ -12,3 +12,4 @@ jobs:
           echo "MY_ENV_VAR1=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
           echo "MY_ENV_VAR2=${{ env.MY_VAR }}" >> $GITHUB_ENV
           echo "MY_ENV_VAR3=INTERNAL" >> $GITHUB_ENV
+          bash test.sh
