@@ -1,0 +1,14 @@
+name: env-test
+
+on:
+  workflow_dispatch: {}
+jobs:
+  deploy:
+    name: Env Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exec shell script
+        run: |
+          echo "MY_ENV_VAR1=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
+          echo "MY_ENV_VAR2=${{ env.MY_VAR }}" >> $GITHUB_ENV
+          echo "MY_ENV_VAR3=INTERNAL" >> $GITHUB_ENV
