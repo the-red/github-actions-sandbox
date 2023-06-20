@@ -1,11 +1,22 @@
 name: env-test
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: 'Deployment target'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+        - development
+        - staging
+        - production
 jobs:
   deploy:
     name: Env Test
     runs-on: ubuntu-latest
+    environment: ${{ inputs.deployment_target }}
     steps:
       - name: checkout source
         uses: actions/checkout@v3
@@ -16,3 +27,5 @@ jobs:
           MY_ENV_VAR1: ${{ secrets.MY_SECRET }}
           MY_ENV_VAR2: ${{ vars.MY_VAR }}
           MY_ENV_VAR3: INTERNAL
+          ENVNAME: ${{ github.event.inputs.deployment_target }}
+          ENVNAME2: ${{ inputs.deployment_target }}
