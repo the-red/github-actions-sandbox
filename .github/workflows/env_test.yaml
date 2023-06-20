@@ -31,3 +31,4 @@ jobs:
           ENVNAME2: ${{ inputs.deployment_target }}
           ENV_MY_SECRET: ${{ secrets.ENV_MY_SECRET }}
           ENV_MY_VAR: ${{ vars.ENV_MY_VAR }}
+          DUPLICATED_VAR: ${{ vars.DUPLICATED_VAR }}

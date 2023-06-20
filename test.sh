@@ -11,4 +11,5 @@ echo 6, $ENVNAME
 echo 7, $ENVNAME2
 echo 8, $ENV_MY_SECRET
 echo 8, $ENV_MY_VAR
+echo 9, $DUPLICATED_VAR
 echo end
