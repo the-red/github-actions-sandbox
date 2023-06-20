@@ -11,11 +11,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Exec shell script
         run: |
-          echo "MY_ENV_VAR1=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
-          echo "MY_ENV_VAR2=${{ vars.MY_VAR }}" >> $GITHUB_ENV
-          echo "MY_ENV_VAR3=INTERNAL" >> $GITHUB_ENV
           bash test.sh
         env:
-          MY_ENV_VAR1: ${{ env.MY_ENV_VAR1 }}
-          MY_ENV_VAR2: ${{ env.MY_ENV_VAR2 }}
+          MY_ENV_VAR1: ${{ secrets.MY_SECRET }}
+          MY_ENV_VAR2: ${{ vars.MY_VAR }}
           MY_ENV_VAR3: INTERNAL
