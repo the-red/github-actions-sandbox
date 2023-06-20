@@ -7,6 +7,8 @@ jobs:
     name: Env Test
     runs-on: ubuntu-latest
     steps:
+      - name: checkout source
+        uses: actions/checkout@v3
       - name: Exec shell script
         run: |
           echo "MY_ENV_VAR1=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
